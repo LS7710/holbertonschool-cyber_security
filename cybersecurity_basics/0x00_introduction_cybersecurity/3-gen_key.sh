@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$2  $1" | sha256sum -c - && echo "ok" || echo "fail"
+ssh-keygen -t rsa -b 4096 -f "$1" -N ""
