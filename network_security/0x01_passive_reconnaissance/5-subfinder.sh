@@ -1,2 +1,2 @@
 #!/bin/bash
-subfinder -d "$1" -silent | xargs -I {} sh -c 'echo -n "{},"; dig +short {} | tail -n1' > "$1.txt"
+subfinder -silent -nW -d $1 -oI -o $1.txt
