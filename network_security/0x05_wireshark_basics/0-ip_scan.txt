@@ -1,2 +1,1 @@
-# Filter for IP protocol scan packets
 ip
