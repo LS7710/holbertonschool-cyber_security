@@ -1,2 +1,2 @@
 #!/bin/bash
-apparmor_status | awk '{print}'
+aa-status | awk '{print}'
