@@ -1,16 +1,17 @@
 #!/usr/bin/env ruby
-require 'optparse'  # Required for checkers
+require 'optparse'
 
 TASK_FILE = 'tasks.txt'
 
-# Ensure task file exists
+# Ensure the task file exists
 File.write(TASK_FILE, '') unless File.exist?(TASK_FILE)
 
 options = {}
+
 OptionParser.new do |opts|
   opts.banner = "Usage: cli.rb [options]"
 
-  opts.on("-aTASK", "--add=TASK", "Add a new task") do |task|
+  opts.on("-a", "--add TASK", "Add a new task") do |task|
     options[:add] = task
   end
 
@@ -18,7 +19,7 @@ OptionParser.new do |opts|
     options[:list] = true
   end
 
-  opts.on("-rINDEX", "--remove=INDEX", Integer, "Remove a task by index") do |index|
+  opts.on("-r", "--remove INDEX", Integer, "Remove a task by index") do |index|
     options[:remove] = index
   end
 
@@ -40,8 +41,8 @@ elsif options[:list]
     puts "No tasks found."
   else
     puts "Tasks:"
-    tasks.each_with_index do |task, index|
-      puts "#{index + 1}. #{task}"
+    tasks.each_with_index do |task, i|
+      puts "#{i + 1}. #{task}"
     end
   end
 
